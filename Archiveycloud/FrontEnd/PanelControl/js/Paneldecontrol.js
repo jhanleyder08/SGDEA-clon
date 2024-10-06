@@ -1,4 +1,5 @@
-var ControlUsers = false;
+var ControlUsers   = false;
+var ControlBarrios = false;
 
 var UsuarioActual = jQuery.parseJSON(sessionStorage.getItem('user'));
 
@@ -15,9 +16,22 @@ $('#ControlPanelUser').click(function(event) {
 		ControlUsers = true;
 	}else{
 		ControlUsers = false;
+    	$('#n_img').removeClass('hidden');
 	}
 });
 
+
+$('#ControlPanelBarrio').click(function(event) {
+	if(!ControlBarrios){
+		$('#n_img').addClass('hidden');
+		listarBarrios();
+		ControlBarrios = true;
+	}else{
+		ControlBarrios = false;
+    $('#n_img').removeClass('hidden');
+	}
+	}
+);
 
 jQuery(document).ready(function(){
     $(".oculto").hide();              
